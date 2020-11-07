@@ -191,13 +191,35 @@ var Fm = {
         this.$container.find('.current-time').text(min+':'+second)
         this.$container.find('.bar-progress').css('width', this.audio.currentTime/this.audio.duration*100+'%')
         
-        console.log(this.lyricObj['0'+min+':'+second])
-       /*  var line = this.lyricObj['0'+min+':'+second]
+        /*console.log(this.lyricObj['0'+min+':'+second])*/
+        var line = this.lyricObj['0'+min+':'+second]
         if(line){
             this.$container.find('.lyric p').text(line)
-           
-        } */
+           .boomText()
+        } 
     }
+}
+
+$.fn.boomText = function(type){
+  type = type || 'rollIn'
+  console.log(type)
+  this.html(function(){
+    var arr = $(this).text()
+    .split('').map(function(word){
+        return '<span class="boomText">'+ word + '</span>'
+    })
+    return arr.join('')
+  })
+  
+  var index = 0
+  var $boomTexts = $(this).find('span')
+  var clock = setInterval(function(){
+    $boomTexts.eq(index).addClass('animated ' + type)
+    index++
+    if(index >= $boomTexts.length){
+      clearInterval(clock)
+    }
+  }, 300)
 }
 
 Footer.init()
