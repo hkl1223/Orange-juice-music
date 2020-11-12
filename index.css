@@ -106,6 +106,10 @@ main .aside .iconfont.active{
     background: #2e6eec;
     border-radius: 3px;
 }
+.detail .tag:hover{
+    background: #ffffff;
+    color: #000000;
+}
 .detail h1{
     font-size: 6vh;
     margin-top: 2vh;
