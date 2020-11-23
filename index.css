@@ -103,7 +103,7 @@ main .aside .iconfont.active{
 .detail .tag{
     font-size: 2vh;
     padding: .4em .8em;
-    background: #2e6eec;
+    color: rgba(255, 255, 255, 0.4);
     border-radius: 3px;
     transition: all .4s;
 }
